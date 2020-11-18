@@ -49,7 +49,12 @@ public class Voiture {
 		// TODO: Implémenter cette méthode
 		// Trouver le dernier stationnement de la voiture
 		// Terminer ce stationnement
-                myStationnements.peekLast().terminer();
+                if (this.estDansUnGarage()){
+                    myStationnements.peekLast().terminer();
+                }
+                else{
+                    throw new Exception("La voiture doit être dans un garage pour pouvoir en sortir");
+                }
                 
 	}
 
