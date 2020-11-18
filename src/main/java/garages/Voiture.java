@@ -6,7 +6,7 @@ import java.util.*;
 public class Voiture {
 
 	private final String immatriculation;
-	private final List<Stationnement> myStationnements = new LinkedList<>();
+	private final List<Stationnement> myStationnements = new LinkedList<Stationnement>();
 
 	public Voiture(String i) {
 		if (null == i) {
@@ -29,8 +29,13 @@ public class Voiture {
 	 */
 	public void entreAuGarage(Garage g) throws Exception {
 		// Et si la voiture est déjà dans un garage ?
-		Stationnement s = new Stationnement(this, g);
-		myStationnements.add(s);
+                if(this.estDansUnGarage()){
+                    throw new Exception("Cette voiture est déjà dans un garage");
+                }
+                else {
+                    Stationnement s = new Stationnement(this, g);
+                    myStationnements.add(s);
+                }
 	}
 
 	/**
