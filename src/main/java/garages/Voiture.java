@@ -1,19 +1,19 @@
 package garages;
 
-import java.io.PrintStream;
+import java.io.*;
 import java.util.*;
 
 public class Voiture {
 
 	private final String immatriculation;
-	private final List<Stationnement> myStationnements = new LinkedList<Stationnement>();
+	private final LinkedList<Stationnement> myStationnements;
 
 	public Voiture(String i) {
 		if (null == i) {
 			throw new IllegalArgumentException("Une voiture doit avoir une immatriculation");
 		}
-
 		immatriculation = i;
+                myStationnements = new LinkedList<>();
 	}
 
 	public String getImmatriculation() {
@@ -49,6 +49,7 @@ public class Voiture {
 		// TODO: Implémenter cette méthode
 		// Trouver le dernier stationnement de la voiture
 		// Terminer ce stationnement
+                
 	}
 
 	/**
@@ -64,8 +65,14 @@ public class Voiture {
 	 */
 	public boolean estDansUnGarage() {
 		// TODO: Implémenter cette méthode
-		throw new UnsupportedOperationException("Pas encore implémenté");
-		// Vrai si le dernier stationnement est en cours
+		//throw new UnsupportedOperationException("Pas encore implémenté");
+                // Vrai si le dernier stationnement est en cours
+                if(myStationnements.getLast().getFin() == null){
+                    return true;
+                }
+                else {
+                    return false;
+                }
 	}
 
 	/**
