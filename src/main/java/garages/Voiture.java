@@ -58,7 +58,13 @@ public class Voiture {
 	 */
 	public Set<Garage> garagesVisites() {
 		// TODO: Implémenter cette méthode
-		throw new UnsupportedOperationException("Pas encore implémenté");
+		//throw new UnsupportedOperationException("Pas encore implémenté
+                Set<Garage> listGarage = new HashSet<>();
+                for (int i=0; i <= myStationnements.size(); i++){
+                    listGarage.add(myStationnements.get(i).getGarage());
+                }
+                return listGarage;
+                
 	}
 
 	/**
