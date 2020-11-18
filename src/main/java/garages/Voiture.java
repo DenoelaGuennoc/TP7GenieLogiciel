@@ -1,6 +1,6 @@
 package garages;
 
-import java.io.*;
+import java.io.PrintStream;
 import java.util.*;
 
 public class Voiture {
@@ -45,10 +45,11 @@ public class Voiture {
 	 * @throws java.lang.Exception si la voiture n'est pas dans un garage
 	 */
 	public void sortDuGarage() throws Exception {
-		throw new UnsupportedOperationException("Pas encore implémenté");
+		//throw new UnsupportedOperationException("Pas encore implémenté");
 		// TODO: Implémenter cette méthode
 		// Trouver le dernier stationnement de la voiture
 		// Terminer ce stationnement
+                myStationnements.peekLast().terminer();
                 
 	}
 
