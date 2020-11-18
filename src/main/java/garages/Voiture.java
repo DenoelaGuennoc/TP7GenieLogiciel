@@ -65,8 +65,10 @@ public class Voiture {
 		// TODO: Implémenter cette méthode
 		//throw new UnsupportedOperationException("Pas encore implémenté
                 Set<Garage> listGarage = new HashSet<>();
-                for (int i=0; i <= myStationnements.size(); i++){
-                    listGarage.add(myStationnements.get(i).getGarage());
+                for (int i=0; i < myStationnements.size(); i++){
+                    if(!listGarage.contains(myStationnements.get(i).getGarage())){
+                        listGarage.add(myStationnements.get(i).getGarage());
+                    }
                 }
                 return listGarage;
                 
@@ -79,11 +81,16 @@ public class Voiture {
 		// TODO: Implémenter cette méthode
 		//throw new UnsupportedOperationException("Pas encore implémenté");
                 // Vrai si le dernier stationnement est en cours
-                if(myStationnements.getLast().getFin() == null){
-                    return true;
+                if (myStationnements.isEmpty()){
+                    return false;
                 }
                 else {
-                    return false;
+                    if(myStationnements.getLast().getFin() == null){
+                        return true;
+                    }
+                    else {
+                        return false;
+                    }
                 }
 	}
 
@@ -103,7 +110,15 @@ public class Voiture {
 	 */
 	public void imprimeStationnements(PrintStream out) {
 		// TODO: Implémenter cette méthode
-		throw new UnsupportedOperationException("Pas encore implémenté");
-	}
+		//throw new UnsupportedOperationException("Pas encore implémenté");
+                for (Garage vGarage : this.garagesVisites()){
+                    out.println("Garage " + vGarage.getName() + ":");
+                    for (int i=0; i < myStationnements.size(); i++){
+                        if (vGarage.equals(myStationnements.get(i).getGarage())){
+                            out.println(myStationnements.get(i).toString());
+                        }
+                    }
+                }
+        }
 
 }
